@@ -40,11 +40,41 @@ class AdController extends AbstractController
 
         $form->handleRequest($request);
 
+        if($form->isSubmitted() && $form->isValid()){
+            $manager->persist($ad);
+            $manager->flush();
+
+            $this->addFlash(
+                'success',
+                "L'annonce <strong>{$ad->getTitle()}</strong> a bien été enregistréé !"
+            );
+
+            return $this->redirectToRoute('ads_show',[
+                'slug' => $ad->getSlug()
+            ]);
+        }
+
 
         
 
         return $this->render('ad/new.html.twig', [
             'form' => $form->createView()
+        ]);
+    }
+
+    /**
+     * Permet d'afficher un seul annonce
+     * 
+     * @Route("/ads/{slug}", name="ads_show")
+     * 
+     * @return Response
+     */
+    public function show(Ad $ad){
+        //Je récupère l'annonce qui correspond au slug
+        //$ad = $repo->findOneBySlug($slug);
+
+        return $this->render('ad/show.html.twig', [
+            'ad' => $ad
         ]);
     }
 }
