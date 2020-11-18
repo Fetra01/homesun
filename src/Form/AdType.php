@@ -61,14 +61,14 @@ class AdType extends AbstractType
 
         $builder
             ->add('title', TextType::class, $this->getConfiguration("Titre","Entrer un titre pour votre annonce"))
-            ->add('slug', TextType::class, $this->getConfiguration("Chaine URL", "Adresse web (Automatique)"))
-            ->add('price', MoneyType::class, $this->getConfiguration("Prix par jour", "Indiquez le prix que vous voulez pour chaque jour"))
+            //->add('slug', TextType::class, $this->getConfiguration("Chaine URL", "Adresse web (Automatique)"))
+            ->add('coverImage', TextType::class, $this->getConfiguration("URL de l'image principale", "Donnez l'adresse d'une image qui donne vraiment envie de venir chez vous !"))
             ->add('introduction', TextType::class, $this->getConfiguration("Introduction", "Donnez une déscription globale de votre annonce !"))
             ->add('Content', TextareaType::class, $this->getConfiguration("Description détaillée", "Entrez une description unique de votre bien !"))
-            ->add('coverImage', TextType::class, $this->getConfiguration("URL de l'image principale", "Donnez l'adresse d'une image qui donne vraiment envie de venir chez vous !"))
             ->add('rooms', IntegerType::class, $this->getConfiguration("Nombre de chambres", "Le nombre de chambre disponible !"))
             ->add('bathrooms', IntegerType::class, $this->getConfiguration("Nombre de salles de bain", "Le nombre de salle de bain !"))
             ->add('pool', ChoiceType::class, $this->getConfigPool("Piscine", "Avez-vous une piscine !"))
+            ->add('price', MoneyType::class, $this->getConfiguration("Prix par jour", "Indiquez le prix que vous voulez pour chaque jour"))
         ;
     }
 
