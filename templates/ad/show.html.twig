@@ -9,7 +9,7 @@
     <div class="container">
         <h1>{{ad.title}}</h1>
         <p>{{ad.introduction}}</p>
-        <p class="h2"><strong>{{ad.rooms}} chambres</strong> pour <strong>{{ad.price}}&euro;</strong>par nuit</p>
+        <p class="h2"><strong>{{ad.rooms}} chambres</strong> pour <strong>{{ad.price}}&euro;</strong> par jour</p>
         <a href="#" class="btn btn-primary">Réserver !</a>
     </div>
 </div>
@@ -18,7 +18,22 @@
         <div class="col-md-8 mb-3">
             {{ ad.content | raw }}
             <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-                
+                <ol class="carousel-indicators">
+                    {% for image in ad.images %} 
+                        <li data-target="#carouselExampleIndicators" data-slide-to="{{loop.index0}}" {% if loop.first %}class="active"{% endif %}></li>
+                    {% endfor %}
+                </ol>
+                <div class="carousel-inner">
+                    {% for image in ad.images %}
+                        <div class="carousel-item {% if loop.first %}active{% endif %}">
+                            <img src="{{ image.url }}" alt="{{ image.caption }}" class="d-block w-100">
+                            <div class="carousel-caption d-none d-md-block">
+                                <h5>{{ ad.title }}</h5>
+                                <p>{{ image.caption }}</p>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
                 <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                     <span class="sr-only">Previous</span>

@@ -7,146 +7,31 @@
     <h1 class="my-3">Voicis les annnonces de nos hôtes !</h1>
 
     <div class="row">
-        <div class="col-md-4">
-            <div class="card bg-light mb-3">
-                <a href="#">
-                    <img src="http://placehold.it/348x250" alt="Image maison" style="height: 250px; with: 100%; display: block">
-                </a>
-                <div class="card-header text-center">
-                    3 chambres, 2 salles de bain , <strong>100&euro; /jour</strong> <br> <small>Pas encore noté</small> 
-                </div>
-                
-                <div class="card-body">
-                    <h4 class="card-title">
-                        <a href="#">Super Maison</a>
-                    </h4>
-                    <p class="card-text">
-                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quisquam ad commodi reiciendis nesciunt ea asperiores totam consequuntur, nihil in repellat.
-                    </p>
-                    <a href="#" class="btn btn-primary">En savoir plus !</a>
-                </div>
-            </div>
-        </div>
-         <div class="col-md-4">
-            <div class="card bg-light mb-3">
-                <a href="#">
-                    <img src="http://placehold.it/348x250" alt="Image maison" style="height: 250px; with: 100%; display: block">
-                </a>
-                <div class="card-header text-center">
-                    3 chambres, 2 salles de bain , <strong>100&euro; /jour</strong> <br> <small>Pas encore noté</small> 
-                </div>
-                
-                <div class="card-body">
-                    <h4 class="card-title">
-                        <a href="#">Super Maison</a>
-                    </h4>
-                    <p class="card-text">
-                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quisquam ad commodi reiciendis nesciunt ea asperiores totam consequuntur, nihil in repellat.
-                    </p>
-                    <a href="#" class="btn btn-primary">En savoir plus !</a>
+        {% for ad in ads %}
+            {% set url = path('ads_show', {'slug': ad.slug}) %}
+
+            <div class="col-md-4">
+                <div class="card bg-light mb-3">
+                    <a href="{{ url }}">
+                        <img src="http://placehold.it/348x250" alt="Image maison" style="height: 250px; with: 100%; display: block">
+                    </a>
+                    
+                    <div class="card-header text-center">
+                        3 chambres, 2 salles de bain , <strong>100&euro; /jour</strong> <br> <small>Pas encore noté</small> 
+                    </div>
+                    
+                    <div class="card-body">
+                        <h4 class="card-title">
+                            <a href="{{ url }}">{{ ad.title }}</a>
+                        </h4>
+                        <p class="card-text">
+                            {{ ad.introduction}}
+                        </p>
+                        <a href="{{ url }}" class="btn btn-primary">En savoir plus !</a>
+                    </div>
                 </div>
             </div>
-        </div>
-         <div class="col-md-4">
-            <div class="card bg-light mb-3">
-                <a href="#">
-                    <img src="http://placehold.it/348x250" alt="Image maison" style="height: 250px; with: 100%; display: block">
-                </a>
-                <div class="card-header text-center">
-                    3 chambres, 2 salles de bain , <strong>100&euro; /jour</strong> <br> <small>Pas encore noté</small> 
-                </div>
-                
-                <div class="card-body">
-                    <h4 class="card-title">
-                        <a href="#">Super Maison</a>
-                    </h4>
-                    <p class="card-text">
-                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quisquam ad commodi reiciendis nesciunt ea asperiores totam consequuntur, nihil in repellat.
-                    </p>
-                    <a href="#" class="btn btn-primary">En savoir plus !</a>
-                </div>
-            </div>
-        </div>
-         <div class="col-md-4">
-            <div class="card bg-light mb-3">
-                <a href="#">
-                    <img src="http://placehold.it/348x250" alt="Image maison" style="height: 250px; with: 100%; display: block">
-                </a>
-                <div class="card-header text-center">
-                    3 chambres, 2 salles de bain , <strong>100&euro; /jour</strong> <br> <small>Pas encore noté</small> 
-                </div>
-                
-                <div class="card-body">
-                    <h4 class="card-title">
-                        <a href="#">Super Maison</a>
-                    </h4>
-                    <p class="card-text">
-                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quisquam ad commodi reiciendis nesciunt ea asperiores totam consequuntur, nihil in repellat.
-                    </p>
-                    <a href="#" class="btn btn-primary">En savoir plus !</a>
-                </div>
-            </div>
-        </div>
-         <div class="col-md-4">
-            <div class="card bg-light mb-3">
-                <a href="#">
-                    <img src="http://placehold.it/348x250" alt="Image maison" style="height: 250px; with: 100%; display: block">
-                </a>
-                <div class="card-header text-center">
-                    3 chambres, 2 salles de bain , <strong>100&euro; /jour</strong> <br> <small>Pas encore noté</small> 
-                </div>
-                
-                <div class="card-body">
-                    <h4 class="card-title">
-                        <a href="#">Super Maison</a>
-                    </h4>
-                    <p class="card-text">
-                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quisquam ad commodi reiciendis nesciunt ea asperiores totam consequuntur, nihil in repellat.
-                    </p>
-                    <a href="#" class="btn btn-primary">En savoir plus !</a>
-                </div>
-            </div>
-        </div>
-         <div class="col-md-4">
-            <div class="card bg-light mb-3">
-                <a href="#">
-                    <img src="http://placehold.it/348x250" alt="Image maison" style="height: 250px; with: 100%; display: block">
-                </a>
-                <div class="card-header text-center">
-                    3 chambres, 2 salles de bain , <strong>100&euro; /jour</strong> <br> <small>Pas encore noté</small> 
-                </div>
-                
-                <div class="card-body">
-                    <h4 class="card-title">
-                        <a href="#">Super Maison</a>
-                    </h4>
-                    <p class="card-text">
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi qui error distinctio tempore esse ut vitae perspiciatis deserunt perferendis fugit voluptatem accusantium nesciunt, aut quis!
-                    </p>
-                    <a href="#" class="btn btn-primary">En savoir plus !</a>
-                </div>
-            </div>
-        </div>
-         <div class="col-md-4">
-            <div class="card bg-light mb-3">
-                <a href="#">
-                    <img src="http://placehold.it/348x250" alt="Image maison" style="height: 250px; with: 100%; display: block">
-                </a>
-                <div class="card-header text-center">
-                    3 chambres, 2 salles de bain , <strong>100&euro; /jour</strong> <br> <small>Pas encore noté</small> 
-                </div>
-                
-                <div class="card-body">
-                    <h4 class="card-title">
-                        <a href="#">Super Maison</a>
-                    </h4>
-                    <p class="card-text">
-                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Perspiciatis numquam voluptatibus officia eligendi repudiandae, a repellendus optio labore dolorem, quae quod ad corporis iusto earum, distinctio aliquid doloribus beatae. Facere.
-                    </p>
-                    <a href="#" class="btn btn-primary">En savoir plus !</a>
-                </div>
-            </div>
-        </div>
+        {% endfor %}
     </div>
 </div>
 {% endblock %}
