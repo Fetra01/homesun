@@ -3,37 +3,20 @@
 namespace App\Form;
 
 use App\Entity\Ad;
+use App\Form\ApplicationType;
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
-use Symfony\Component\Form\Extension\Core\Type\CollectionType;
-use Symfony\Component\Form\Extension\Core\Type\IntegerType;
-use Symfony\Component\Form\Extension\Core\Type\MoneyType;
-use Symfony\Component\Form\Extension\Core\Type\TextareaType;
-use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\MoneyType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\IntegerType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
+use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 
-class AdType extends AbstractType
+class AdType extends ApplicationType
 {
-    /**
-     * Permet d'avoir le configuration de base des champs
-     *
-     * @param string $label
-     * @param string $placeholder
-     * @return array
-     */
 
-    private function getConfiguration($label, $placeholder, $option = []){
-        return  array_merge([
-            'label' => $label,
-            'attr'  => [
-                'placeholder' => $placeholder
-            ]
-            ], $option);
-
-    }
-    
-    
     /**
      * Les champs à compléter
      *
